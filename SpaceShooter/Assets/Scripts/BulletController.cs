@@ -16,9 +16,20 @@ public class BulletController : MonoBehaviour
         //Positive Y velocity ensures the enemy will move up the screen
         body.velocity = new Vector2(0, speed * 1);
     }
-	
-	void Update ()
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-		
-	}
+        if (collision.gameObject.CompareTag("Kill"))
+        {
+            //destroy game object
+            //game object refers to the game object which this script is attached to
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.CompareTag("Asteroid"))
+        {
+            //destroy game object
+            //game object refers to the game object which this script is attached to
+            Destroy(gameObject);
+        }
+    }
 }

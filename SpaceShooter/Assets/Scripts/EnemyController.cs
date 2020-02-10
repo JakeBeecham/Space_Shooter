@@ -8,7 +8,13 @@ public class EnemyController : MonoBehaviour
 
     Rigidbody2D body;
 
-	void Start ()
+    public GameObject ammoPickUp;
+
+    public GameObject healthPickUp;
+
+    PlayerData data;
+
+    void Start ()
     {
         body = GetComponent<Rigidbody2D>();
 
@@ -24,6 +30,27 @@ public class EnemyController : MonoBehaviour
             //destroy game object
             //game object refers to the game object which this script is attached to
             Destroy(gameObject);
+        }
+        else if (collision.gameObject.CompareTag("Bullet"))
+        {
+            //destroy game object
+            //game object refers to the game object which this script is attached to
+            Destroy(gameObject);
+
+            PlayerData.OnEnemiesKilled();
+
+            //pick a random number between 1 and 10
+            int chance = Random.Range(1, 10);
+
+            //if the number is even
+            if (chance % 2 == 0)
+            {
+                Instantiate(ammoPickUp).transform.position = transform.position;
+            }
+            else //else the number is odd
+            {
+                Instantiate(healthPickUp).transform.position = transform.position;
+            }
         }
     }
 }

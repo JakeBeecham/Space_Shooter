@@ -91,6 +91,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  ammoPickUp: {fileID: 1032793634868948, guid: 3d676052e7ec1ef4290a0f404fb413ad, type: 2}
+  healthPickUp: {fileID: 1377306802752058, guid: c343b92e9decae348ab5c877153d8b41,
+    type: 2}
 --- !u!114 &114833700852575010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -104,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDamage: 1
   maxDamage: 25
-  damage: 0
+  damage: 50
 --- !u!212 &212890805581926858
 SpriteRenderer:
   m_ObjectHideFlags: 1

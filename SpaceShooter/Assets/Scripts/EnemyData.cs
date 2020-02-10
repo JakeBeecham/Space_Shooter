@@ -12,6 +12,7 @@ public class EnemyData : MonoBehaviour
     {
         minDamage = Random.Range(1, 12);
         maxDamage = Random.Range(13, 25);
+        damage = Random.Range(5, 25);
 	}
 	
 	void Update ()

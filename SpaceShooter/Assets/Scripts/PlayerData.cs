@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class PlayerData : MonoBehaviour
 {
-    int health;
+    public int health;
     public int startingHealth = 100;
     public int lives = 5;
     public int ammo = 100;
 
     EnemyData data;
+
+    public static int enemiesKilled;
 
 	void Start ()
     {
@@ -36,5 +38,24 @@ public class PlayerData : MonoBehaviour
                 health = startingHealth;
             }
         }
+        else if (collision.gameObject.tag == "Ammo")
+        {
+            //get the pickup controller and use the amount variable it has
+            PickUpController pickup = collision.gameObject.GetComponent<PickUpController>();
+            ammo += pickup.amount;
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.tag == "Health")
+        {
+            //get the pickup controller and use the amount variable it has
+            PickUpController pickup = collision.gameObject.GetComponent<PickUpController>();
+            health += pickup.amount;
+            Destroy(collision.gameObject);
+        }
+    }
+
+    public static void OnEnemiesKilled()
+    {
+        enemiesKilled++;
     }
 }

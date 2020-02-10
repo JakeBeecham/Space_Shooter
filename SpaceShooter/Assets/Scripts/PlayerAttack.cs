@@ -10,7 +10,7 @@ public class PlayerAttack : MonoBehaviour
 
 	void Start ()
     {
-		
+        data = GetComponent<PlayerData>();
 	}
 	
 	void Update ()
